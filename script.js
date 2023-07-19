@@ -1,3 +1,5 @@
+import { startConfetti, stopConfetti, removeConfetti } from "./confetti.js";
+
 // Refs
 
 const playerScoreEl = document.getElementById("playerScore");
@@ -140,3 +142,8 @@ function select(input) {
   }
   playerChoiceEl.textContent = "--" + text;
 }
+
+window.select = select;
+window.resetAll = resetAll;
+
+// startConfetti();
