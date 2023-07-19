@@ -29,6 +29,23 @@ const choices = {
 };
 
 let computerChoice = "";
+let playerScoreNo = 0;
+let computerScoreNo = 0;
+
+function updateScore(input) {
+  let result = "";
+  if (input == computerChoice) {
+    resultText.textContent = "Its a TIE";
+    return;
+  }
+  let defeats = choices[input.toLowerCase()].defeats;
+  if (!defeats.includes(computerChoice)) {
+    result = "Computer WON !";
+  } else {
+    result = "You WON !";
+  }
+  resultText.textContent = result;
+}
 
 function resetSelection() {
   gameIcons.forEach((each) => each.classList.remove("selected"));
@@ -42,7 +59,7 @@ function computerRandomChoice() {
   return "spock";
 }
 function computerSelect(input) {
-  console.log(input);
+  computerChoice = input;
   let text = "";
   switch (input) {
     case "rock":
@@ -71,13 +88,14 @@ function computerSelect(input) {
   computerChoiceEl.textContent = text;
 }
 
-function checkResult() {
+function checkResult(input) {
   resetSelection();
   computerSelect(computerRandomChoice());
+  updateScore(input);
 }
 
 function select(input) {
-  checkResult();
+  checkResult(input);
   let text = "";
   switch (input) {
     case "rock":
