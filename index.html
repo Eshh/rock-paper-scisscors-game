@@ -27,7 +27,7 @@
             <i onclick="select('spock')" class="far fa-hand-spock" title="Spock" id="playerSpock"></i>
         </div>
         <div class="player-container" id="computer">
-            <h2>You -
+            <h2>Computer -
                 <span id="computerScore">0</span>
                 <span class="choice" id="computerChoice"> --- Choice</span>
             </h2>
@@ -38,7 +38,7 @@
             <i class="far fa-hand-spock" title="Spock" id="computerSpock"></i>
         </div>
         <!-- Reset icon -->
-        <i class="fas fa-sync-alt reset-icon" title="Reset"></i>
+        <i onclick="resetAll()" class="fas fa-sync-alt reset-icon" title="Reset"></i>
         <!-- Results -->
         <div class="result-container">
             <h3 class="result--test" id="resultText">You won</h3>

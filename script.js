@@ -40,11 +40,25 @@ function updateScore(input) {
   }
   let defeats = choices[input.toLowerCase()].defeats;
   if (!defeats.includes(computerChoice)) {
-    result = "Computer WON !";
+    result = "You LOST!";
+    computerScoreNo++;
+    computerScoreEl.textContent = computerScoreNo;
   } else {
-    result = "You WON !";
+    result = "You WON!";
+    playerScoreNo++;
+    playerScoreEl.textContent = playerScoreNo;
   }
   resultText.textContent = result;
+}
+function resetAll() {
+  computerScoreNo = 0;
+  playerScoreNo = 0;
+  computerScoreEl.textContent = computerScoreNo;
+  playerScoreEl.textContent = playerScoreNo;
+  playerChoiceEl.textContent = "";
+  computerChoiceEl.textContent = "";
+  resultText.textContent = "";
+  resetSelection();
 }
 
 function resetSelection() {
@@ -85,7 +99,7 @@ function computerSelect(input) {
     default:
       break;
   }
-  computerChoiceEl.textContent = text;
+  computerChoiceEl.textContent = "--" + text;
 }
 
 function checkResult(input) {
@@ -121,5 +135,5 @@ function select(input) {
     default:
       break;
   }
-  playerChoiceEl.textContent = text;
+  playerChoiceEl.textContent = "--" + text;
 }
