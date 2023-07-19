@@ -44,6 +44,7 @@ function updateScore(input) {
     computerScoreNo++;
     computerScoreEl.textContent = computerScoreNo;
   } else {
+    startConfetti();
     result = "You WON!";
     playerScoreNo++;
     playerScoreEl.textContent = playerScoreNo;
@@ -62,6 +63,8 @@ function resetAll() {
 }
 
 function resetSelection() {
+  stopConfetti();
+  removeConfetti();
   gameIcons.forEach((each) => each.classList.remove("selected"));
 }
 function computerRandomChoice() {
